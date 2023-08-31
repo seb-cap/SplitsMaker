@@ -17,3 +17,7 @@ Run the python file with python:
 ```
 python txt_lss.py <txt_file> <lss_file>
 ```
+
+## Compatibility
+
+This tool can be used with [LiveSplitAddRun](https://github.com/seb-cap/LiveSplitAddRun) to add a saved run to the newly generated .lss file.
