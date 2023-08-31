@@ -121,27 +121,30 @@ def getSplitsFromFile(file):
 
 
 def main(args):
-    if len(args) != 2:
-        print("USAGE: python txt_lss.py <txt_path> <lss_path>")
-        sys.exit()
+    if len(args) != 4:
+        print("USAGE: python txt_lss.py <game> <category> <txt_path> <lss_path>")
+        sys.exit(-1)
     else:
-        txt_path = args[0]
-        lss_path = args[1]
+        game = args[0]
+        category = args[1]
+        txt_path = args[2]
+        lss_path = args[3]
         try:
             splits = getSplitsFromFile(txt_path)
         except Exception:
             print("Error getting txt file.")
             traceback.print_exc()
-            sys.exit()
+            sys.exit(1)
 
         try:
-            createFile(lss_path, "MyGame", "Any%", splits)
+            createFile(lss_path, game, category, splits)
         except Exception:
             print("Error creating lss file.")
             traceback.print_exc()
-            sys.exit()
+            sys.exit(1)
 
         print("Successfully created file " + lss_path)
+        sys.exit(0)
 
 
 if __name__ == "__main__":
